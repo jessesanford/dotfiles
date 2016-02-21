@@ -125,3 +125,10 @@
   enabled = true
 [include]
   path = .gitconfig.user
+[user]
+	name = Jesse Sanford
+	email = jessesanford@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
