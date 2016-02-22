@@ -1,5 +1,4 @@
 " Make it beautiful - colors and fonts
-
 if has("gui_running")
   "tell the term has 256 colors
   set t_Co=256
@@ -13,13 +12,12 @@ if has("gui_running")
   set columns=190
 
   if has("gui_gtk2")
-    set guifont=Inconsolata\ XL\ 8,Inconsolata\ 10,Monaco\ 12
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11,Inconsolata\ XL\ 8,Inconsolata\ 10,Monaco\ 12
   else
-    set guifont=Inconsolata\ XL:h12,Inconsolata:h16,Monaco:h17
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11,Inconsolata\ XL:h12,Inconsolata:h16,Monaco:h17
   end
 else
   let g:CSApprox_loaded = 1
-
   " For people using a terminal that is not Solarized
   if exists("g:yadr_using_unsolarized_terminal")
     let g:solarized_termcolors=256

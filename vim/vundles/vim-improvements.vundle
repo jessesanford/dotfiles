@@ -29,4 +29,6 @@ Bundle "vim-scripts/lastpos.vim"
 Bundle "vim-scripts/sudo.vim"
 Bundle "goldfeld/ctrlr.vim"
 Bundle "editorconfig/editorconfig-vim"
-
+Bundle "jessesanford/ranger.vim"
+Bundle "ryanoasis/vim-devicons"
+Bundle 'Xuyuanp/nerdtree-git-plugin'
