@@ -1,1 +1,1 @@
-/Users/jessesanford/.vimrc
+/Users/j/.vimrc
