@@ -1,0 +1,138 @@
+let macvim_skip_cmd_opt_movement = 1
+
+" clipboard fixes
+set clipboard=unnamed
+function! ClipboardYank()
+  call system('pbcopy', @@)
+endfunction
+function! ClipboardPaste()
+  let @@ = system('pbpaste')
+endfunction
+
+vnoremap <silent> y y:call ClipboardYank()<cr>
+vnoremap <silent> d d:call ClipboardYank()<cr>
+nnoremap <silent> p :call ClipboardPaste()<cr>p
+
+
+" ========================================
+" Linux specific General vim sanity improvements
+" ========================================
+"
+" ========================================
+" RSI Prevention - keyboard remaps
+" ========================================
+" Certain things we do every day as programmers stress
+" out our hands. For example, typing underscores and
+" dashes are very common, and in position that require
+" a lot of hand movement. Vim to the rescue
+"
+" Now using the middle finger of either hand you can type
+" underscores with Alt-k or Alt-d, and add Shift
+" to type dashes
+imap <silent> ˚ _
+imap <silent> ∂ _
+imap <silent>  -
+imap <silent> Î -
+
+" Change inside various enclosures with Alt-" and Alt-'
+" The f makes it find the enclosure so you don't have
+" to be standing inside it
+nnoremap æ f'ci'
+nnoremap Æ f"ci"
+nnoremap · f(ci(
+nnoremap ‚ f)ci)
+nnoremap ‘ f[ci[
+nnoremap “ f]ci]
+
+" ==== NERD tree
+" Alt-Shift-N for nerd tree
+"nmap ˜ :NERDTreeToggle<CR>
+nmap ˜ <plug>NERDTreeTabsToggle<CR>
+
+" Command-/ to toggle comments
+map » :TComment<CR>
+imap ¿ <Esc>:TComment<CR>i
+
+" Use Alt- numbers to pick the tab you want
+map <silent> ¡ :tabn 1<cr>
+map <silent> ™ :tabn 2<cr>
+map <silent> £ :tabn 3<cr>
+map <silent> ¢ :tabn 4<cr>
+map <silent> ∞ :tabn 5<cr>
+map <silent> § :tabn 6<cr>
+map <silent> ¶ :tabn 7<cr>
+map <silent> • :tabn 8<cr>
+map <silent> ª :tabn 9<cr>
+
+" Resize windows with arrow keys
+" nnoremap <C-Up> <C-w>+
+" nnoremap <C-Down> <C-w>-
+" nnoremap <C-Left> <C-w><
+" nnoremap <C-Right>  <C-w>>
+
+nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> > :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> < :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+
+
+" ============================
+" Tabularize - alignment
+" ============================
+" Hit Alt-Shift-A then type a character you want to align by
+nmap Å :Tabularize /
+vmap Å :Tabularize /
+
+" Source current file Alt-% (good for vim development)
+map ﬁ :so %<CR>
+
+" from http://vim.wikia.com/wiki/Alternative_tab_navigation
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-t>     <Esc>:tabnew<CR>
+nnoremap H gT
+nnoremap L gt
+
+" ===========================
+" customizations from: http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+" ===========================
+
+" general
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set relativenumber
+
+" searcn and movement
+set gdefault
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+
+" handle long lines
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=85
+
+" Textmate like eol
+set list
+set listchars=tab:▸\ ,eol:¬
+
+" get rid of help key
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" save on loose focus
+au FocusLost * :wa
+
+" confirm quit
+let s:save_cpo = &cpo
+set cpo&vim
+cnoremap <silent> qa<CR>  :call confirm_quit#confirm(0, 'last')<CR>
+cnoremap <silent> wqa<CR> :call confirm_quit#confirm(1, 'last')<CR>
+let &cpo = s:save_cpo
+unlet s:save_cpo
