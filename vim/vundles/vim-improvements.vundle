@@ -31,4 +31,5 @@ Bundle "goldfeld/ctrlr.vim"
 Bundle "editorconfig/editorconfig-vim"
 Bundle "jessesanford/ranger.vim"
 Bundle "ryanoasis/vim-devicons"
-Bundle 'Xuyuanp/nerdtree-git-plugin'
+Bundle "Xuyuanp/nerdtree-git-plugin"
+Bundle "vim-scripts/confirm-quit"
