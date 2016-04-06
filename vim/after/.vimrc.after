@@ -134,5 +134,9 @@ let s:save_cpo = &cpo
 set cpo&vim
 cnoremap <silent> qa<CR>  :call confirm_quit#confirm(0, 'last')<CR>
 cnoremap <silent> wqa<CR> :call confirm_quit#confirm(1, 'last')<CR>
+if has('nvim')
+  tnoremap <silent> qa<CR>  :call confirm_quit#confirm(0, 'last')<CR>
+  tnoremap <silent> wqa<CR> :call confirm_quit#confirm(1, 'last')<CR>
+endif
 let &cpo = s:save_cpo
 unlet s:save_cpo
