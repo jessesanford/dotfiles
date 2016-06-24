@@ -5,3 +5,9 @@ if has('nvim')
   tnoremap <C-k> <C-\><C-n><C-w>k
   tnoremap <C-l> <C-\><C-n><C-w>l
 endif
+
+if has('nvim')
+    nmap <BS> :<C-u>TmuxNavigateLeft<CR>
+else
+    nmap <C-h> <C-w>h
+endif
