@@ -1,0 +1,7 @@
+Bundle "https://github.com/qpkorr/vim-bufkill"
+Bundle "jessesanford/ranger.vim"
+Bundle "ryanoasis/vim-devicons"
+Bundle "Xuyuanp/nerdtree-git-plugin"
+Bundle "vim-scripts/confirm-quit"
+Bundle "fholgado/minibufexpl.vim"
+Bundle "Shougo/deoplete.nvim"
