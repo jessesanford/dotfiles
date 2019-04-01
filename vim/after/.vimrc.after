@@ -47,7 +47,8 @@ nnoremap “ f]ci]
 " ==== NERD tree
 " Alt-Shift-N for nerd tree
 "nmap ˜ :NERDTreeToggle<CR>
-nmap ˜ <plug>NERDTreeTabsToggle<CR>
+"nmap ˜ <plug>NERDTreeTabsToggle<CR>
+nmap _ <plug>NERDTreeTabsToggle<CR>
 
 " Command-/ to toggle comments
 map » :TComment<CR>
